@@ -9,9 +9,10 @@ struct FireTopicDetailSnapshotAssembler: Sendable {
     // MARK: - Build
 
     func buildSnapshot(
-        from input: FireTopicDetailSnapshotInput
+        from input: FireTopicDetailSnapshotInput,
+        reusingComments cached: FireTopicDetailRuntimeSnapshot? = nil
     ) -> FireTopicDetailPageSnapshot {
-        let runtimeSnapshot = input.configuration.makeSnapshot()
+        let runtimeSnapshot = input.configuration.makeSnapshot(reusingComments: cached)
 
         return FireTopicDetailPageSnapshot(
             items: runtimeSnapshot.items,
@@ -129,7 +130,7 @@ struct FireTopicDetailSnapshotAssembler: Sendable {
         ].joined(separator: "\u{1F}")
     }
 
-    private func typingSummary(from users: [TopicPresenceUserState]) -> String? {
+    private func typingSummary(from users: [TopicDetailTypingUserState]) -> String? {
         guard !users.isEmpty else { return nil }
         let names = users.prefix(3).map(\.username)
         let leading = names.joined(separator: "、")

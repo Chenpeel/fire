@@ -3,6 +3,7 @@ package com.fire.app.ui.home
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test
+import uniffi.fire_uniffi_topics.TopicHomeUnreadDecisionState
 import uniffi.fire_uniffi_types.TopicRowState
 import uniffi.fire_uniffi_types.TopicSummaryState
 
@@ -81,6 +82,7 @@ class HomeTopicDetailPatcherTest {
                 views = 321u,
                 lastReadPostNumber = 9u,
                 highestPostNumber = 9u,
+                unread = TopicHomeUnreadDecisionState.CAUGHT_UP,
             ),
         )
 

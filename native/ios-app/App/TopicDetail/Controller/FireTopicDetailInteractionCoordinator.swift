@@ -60,7 +60,7 @@ extension FireTopicDetailViewController {
         guard canWriteInteractions else { return }
         guard !visiblePostNumbers.isEmpty else { return }
 
-        let posts = topicDetailStore.topicDetail(for: topic.id)?.postStream.posts ?? []
+        let posts = topicDetailStore.snapshot(for: topic.id)?.rows ?? []
         guard let coachPost = posts.first(where: { post in
             visiblePostNumbers.contains(post.postNumber)
                 && !post.hidden
@@ -70,7 +70,7 @@ extension FireTopicDetailViewController {
 
         didAttemptReactionPickerCoachmark = true
         FireTopicDetailReactionPickerCoachmark.markSeen()
-        expandReactionPicker(for: coachPost.id, markCoachmarkSeen: false)
+        expandReactionPicker(for: coachPost.postId, markCoachmarkSeen: false)
     }
 
     func togglePostTextExpansion(for post: TopicPostState) {
@@ -91,12 +91,7 @@ extension FireTopicDetailViewController {
 
         expandedReplyRootPostIDs.insert(post.id)
         applyLocalInteractionSnapshot()
-        Task {
-            await topicDetailStore.loadPostReplyContextIfNeeded(
-                topicID: topic.id,
-                post: post
-            )
-        }
+        topicDetailStore.loadReplyContext(topicId: topic.id, postId: post.id)
     }
 
     func toggleLike(for post: TopicPostState) {
@@ -202,8 +197,8 @@ extension FireTopicDetailViewController {
         Task { @MainActor in
             do {
                 try await topicDetailStore.deletePost(
-                    topicID: topic.id,
-                    postID: context.postID
+                    topicId: topic.id,
+                    postId: context.postID
                 )
                 modalRouter.presentNotice(message: "已删除 #\(context.postNumber)。")
             } catch {
@@ -217,8 +212,8 @@ extension FireTopicDetailViewController {
         Task { @MainActor in
             do {
                 try await topicDetailStore.recoverPost(
-                    topicID: topic.id,
-                    postID: context.postID
+                    topicId: topic.id,
+                    postId: context.postID
                 )
                 modalRouter.presentNotice(message: "已恢复 #\(context.postNumber)。")
             } catch {
@@ -228,11 +223,11 @@ extension FireTopicDetailViewController {
     }
 
     func toggleTopicVote() async {
-        guard let detail else { return }
+        let userVoted = detailSnapshot?.chrome.userVoted ?? false
         do {
             _ = try await viewModel.topicInteraction.voteTopic(
                 topicID: topic.id,
-                voted: !detail.userVoted,
+                voted: !userVoted,
                 recoveryOriginURL: topicCloudflareRecoveryURL
             )
         } catch {

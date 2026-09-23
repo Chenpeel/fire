@@ -144,6 +144,7 @@
 		7EFB42D38DCA6C0F63720AE3 /* FirePostCellNode+Reactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A763199D74A1026B2ADB530 /* FirePostCellNode+Reactions.swift */; };
 		800930BED241B0CF61E5FD0A /* fire_uniffi_types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09DBDDAC9BA75DCC865D23 /* fire_uniffi_types.swift */; };
 		8146E8382FB40C8617EF19B7 /* FireWebViewCookieActionSupportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5103D4725A903220359B1C42 /* FireWebViewCookieActionSupportTests.swift */; };
+		8169E3FD365AE9F655517F7C /* FireTopicDetailArticleSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8928D817CE60A917A5BA0C9 /* FireTopicDetailArticleSnapshot.swift */; };
 		816DB34CD28CD94ED88EF9C6 /* FirePaginatedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D5E6727E0D21855DDEA2F /* FirePaginatedStore.swift */; };
 		83C439B40A75418E1406961F /* FireTopicPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBDE8779B6F7E32204263F4 /* FireTopicPresentation.swift */; };
 		8414458CE31AB953097CF014 /* FireSelectableRichTextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08AC6976AD62C1DAB2DBB2F /* FireSelectableRichTextNode.swift */; };
@@ -190,6 +191,7 @@
 		B9E25AF09D46C9889B98E8A2 /* FireComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24186C615A12A722B2ABEE06 /* FireComponents.swift */; };
 		BB4439D1D0537CEC232DF789 /* FireWidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CDD24C8A021152FA0A67AE /* FireWidgetViews.swift */; };
 		BB6794B89B439C61B8A5620C /* FireFeedbackPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E6EEDE9F6AACB5DBE9B79 /* FireFeedbackPresenter.swift */; };
+		BBE9EB26A016A92092A4D0F2 /* FireTopicDetailPageSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C653495E2307C802BB389A /* FireTopicDetailPageSkeleton.swift */; };
 		BD0F6BE28D1D0143383BAF2A /* FireProfileStatsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1BF19AD44A73E451313B6 /* FireProfileStatsRow.swift */; };
 		BD294B1545CC5167CAB3620E /* fire_uniffi_search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B06D0B580C355652E1934 /* fire_uniffi_search.swift */; };
 		BDBF0CEBD8F5F7C1C19769B7 /* FireMessageBusCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C11839708BD8C370EB52334 /* FireMessageBusCoordinator.swift */; };
@@ -220,6 +222,7 @@
 		D1A666B9F78D411F32B91FFC /* FireTextureAttributedTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548ED4AC247F6D252A3A6FF9 /* FireTextureAttributedTextTests.swift */; };
 		D201FF0609323A45827C583F /* FireAutoLoginPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B66C15EE15F4C35AE369C7 /* FireAutoLoginPlanner.swift */; };
 		D2D1EA7C7D1208AEE0932A86 /* FireFollowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C18328DFF8C1C3145C2DAC /* FireFollowListViewController.swift */; };
+		D668649DC871BC807613F946 /* FireTopicDetailCommentListSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0C004FB6FE17D6896FF17C /* FireTopicDetailCommentListSnapshot.swift */; };
 		D89E51A2B4024E06147DAEE7 /* FireShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B945E18FF2C7CF0F29CB4 /* FireShortcuts.swift */; };
 		D914CE5CE076533C2C932623 /* FirePushDiagnosticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710FF0F248498E25E02037D /* FirePushDiagnosticsView.swift */; };
 		DA3519D17B33A6FF56FAD600 /* FireDohSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF197F76705D49E465A05B /* FireDohSourceViewController.swift */; };
@@ -326,6 +329,7 @@
 		149C3D9916D55374B1B4A37C /* FireAppRouteControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAppRouteControllerFactory.swift; sourceTree = "<group>"; };
 		151CF08DEE9DBAE7D98495AC /* FireTopicPostStateFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireTopicPostStateFixtures.swift; sourceTree = "<group>"; };
 		1800DA0F94ED3D7B3099DB89 /* fire_uniffi_diagnostics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fire_uniffi_diagnostics.swift; sourceTree = "<group>"; };
+		1D0C004FB6FE17D6896FF17C /* FireTopicDetailCommentListSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireTopicDetailCommentListSnapshot.swift; sourceTree = "<group>"; };
 		1EDE93D07235A87438E6E563 /* FireRenderPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireRenderPresentation.swift; sourceTree = "<group>"; };
 		1EF6B1D638EEA75C75B2B2D5 /* FirePostCellLayoutCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirePostCellLayoutCalculatorTests.swift; sourceTree = "<group>"; };
 		1F1F872C6062881E7513980D /* FireAppViewModel+Diagnostics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireAppViewModel+Diagnostics.swift"; sourceTree = "<group>"; };
@@ -474,6 +478,7 @@
 		AFECA37BF8132D011E6B5506 /* FireHomeScopePresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireHomeScopePresentationTests.swift; sourceTree = "<group>"; };
 		B17BF0CB4137B71949AACC0C /* FireSearchStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireSearchStoreTests.swift; sourceTree = "<group>"; };
 		B220305F1DFD0C508260CFA9 /* FirePostCellLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirePostCellLayout.swift; sourceTree = "<group>"; };
+		B3C653495E2307C802BB389A /* FireTopicDetailPageSkeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireTopicDetailPageSkeleton.swift; sourceTree = "<group>"; };
 		B4F09B0F010E9C41B77F4B40 /* FireHomeScopePanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireHomeScopePanelController.swift; sourceTree = "<group>"; };
 		B5619EAAFA6C1DCD6B3E1A15 /* FireMediumWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireMediumWidget.swift; sourceTree = "<group>"; };
 		B5E5271F93B7DF18859B101F /* FireWebViewLoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireWebViewLoginCoordinator.swift; sourceTree = "<group>"; };
@@ -551,6 +556,7 @@
 		F74563DD6B9E870850553DDA /* FireAppViewModel+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireAppViewModel+Profile.swift"; sourceTree = "<group>"; };
 		F7C061876458A31F793EE975 /* FireWebViewBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireWebViewBrowserViewController.swift; sourceTree = "<group>"; };
 		F7F4881067D974AA645C77FC /* FireWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = FireWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8928D817CE60A917A5BA0C9 /* FireTopicDetailArticleSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireTopicDetailArticleSnapshot.swift; sourceTree = "<group>"; };
 		F90878A611124AD41C0288B7 /* FireTopicDetailModalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireTopicDetailModalRouter.swift; sourceTree = "<group>"; };
 		F9384B4FECD3434E8DCCB3BA /* FireFilteredTopicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireFilteredTopicListView.swift; sourceTree = "<group>"; };
 		FA8E7753E3E1BB8E3CD88E96 /* Fire-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Fire-Shared.xcconfig"; sourceTree = "<group>"; };
@@ -725,6 +731,14 @@
 			path = APM;
 			sourceTree = "<group>";
 		};
+		432B61BE05D9E5BC2CC09D19 /* Shell */ = {
+			isa = PBXGroup;
+			children = (
+				B3C653495E2307C802BB389A /* FireTopicDetailPageSkeleton.swift */,
+			);
+			path = Shell;
+			sourceTree = "<group>";
+		};
 		5490C8448BFCBD09FDBC1287 /* DeveloperTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -766,6 +780,14 @@
 				5AE3D99CBA147535E68FB7E6 /* FireTopicDetailSnapshotAssembler.swift */,
 			);
 			path = State;
+			sourceTree = "<group>";
+		};
+		5F657D2B6414BE9FDC38DE3B /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				1D0C004FB6FE17D6896FF17C /* FireTopicDetailCommentListSnapshot.swift */,
+			);
+			path = Comments;
 			sourceTree = "<group>";
 		};
 		5F7AA7499A2F1D712BD81C5A /* Feedback */ = {
@@ -1101,10 +1123,13 @@
 		CEBB259DDDBA31DF0CA406A9 /* TopicDetail */ = {
 			isa = PBXGroup;
 			children = (
+				E576A1F6733B5D50E3718FD8 /* Article */,
+				5F657D2B6414BE9FDC38DE3B /* Comments */,
 				2CF8A481ECB4FF480F527B2C /* Controller */,
 				9104AB2B5E8F79AB50DBDAA1 /* Feed */,
 				2607C3DFEA87D8037E7D8539 /* Host */,
 				1D4EA522AEB920803774F33C /* Nodes */,
+				432B61BE05D9E5BC2CC09D19 /* Shell */,
 				5BA314EE5B2BBD55F0914150 /* State */,
 				AC8A5608257313F526A24227 /* Support */,
 			);
@@ -1170,6 +1195,14 @@
 				E69013450F80AEC210D5512D /* Security.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E576A1F6733B5D50E3718FD8 /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				F8928D817CE60A917A5BA0C9 /* FireTopicDetailArticleSnapshot.swift */,
+			);
+			path = Article;
 			sourceTree = "<group>";
 		};
 		E6FFE443DA18651279314100 /* Composer */ = {
@@ -1588,6 +1621,8 @@
 				0738F9AD86263ECE2016A8D4 /* FireTagPickerSheet.swift in Sources */,
 				F6B73F0BFAB8573C89C89CCA /* FireTextureAttributedText.swift in Sources */,
 				09DEF34E484D68FE6A3A1AC5 /* FireTheme.swift in Sources */,
+				8169E3FD365AE9F655517F7C /* FireTopicDetailArticleSnapshot.swift in Sources */,
+				D668649DC871BC807613F946 /* FireTopicDetailCommentListSnapshot.swift in Sources */,
 				04AB0C15F52072F2E720E47F /* FireTopicDetailControllerHost.swift in Sources */,
 				E38E8CABB24B1AD415D69203 /* FireTopicDetailFeedCellFactory.swift in Sources */,
 				B7784C41CA7002BF3223029B /* FireTopicDetailFeedCells.swift in Sources */,
@@ -1597,6 +1632,7 @@
 				CE0D834262ED55561F6BC409 /* FireTopicDetailInteractionCoordinator.swift in Sources */,
 				24F82A793D9593417C1E59EA /* FireTopicDetailModalRouter.swift in Sources */,
 				522CA82334EAC05D23624720 /* FireTopicDetailModalViews.swift in Sources */,
+				BBE9EB26A016A92092A4D0F2 /* FireTopicDetailPageSkeleton.swift in Sources */,
 				6C52C8A80C6D33CEEF5F6B18 /* FireTopicDetailPageSnapshot.swift in Sources */,
 				F25C8C5E91D29F5BEDB35E9A /* FireTopicDetailPageState.swift in Sources */,
 				E5268113A96209626BB13FEA /* FireTopicDetailPaginationCoordinator.swift in Sources */,

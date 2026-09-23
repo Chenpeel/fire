@@ -248,7 +248,8 @@ final class FireTopicDetailModalRouter {
         initialBody: String,
         initialBodySelectionLocation: Int? = nil,
         onReplySubmitted: @escaping @MainActor () -> Void,
-        onSubmissionNotice: @escaping @MainActor (String) -> Void
+        onSubmissionNotice: @escaping @MainActor (String) -> Void,
+        scrollToCreatedReply: Bool = false
     ) {
         let composer = FireComposerViewController(
             viewModel: viewModel,
@@ -256,7 +257,8 @@ final class FireTopicDetailModalRouter {
             initialBody: initialBody,
             initialBodySelectionLocation: initialBodySelectionLocation,
             onReplySubmitted: onReplySubmitted,
-            onSubmissionNotice: onSubmissionNotice
+            onSubmissionNotice: onSubmissionNotice,
+            scrollToCreatedReply: scrollToCreatedReply
         )
         let navigationController = UINavigationController(rootViewController: composer)
         navigationController.modalPresentationStyle = .fullScreen
@@ -325,16 +327,18 @@ private struct FireTopicDetailFlagSheetHost: View {
     let context: FirePostManagementContext
     let onSubmitted: @MainActor (String) -> Void
 
+    @State private var isLoadingOptions = false
+
     var body: some View {
         FirePostFlagSheet(
             context: context,
-            options: FirePostFlagOption.options(from: store.postActionTypes),
-            isLoadingOptions: store.isLoadingPostActionTypes
+            options: FirePostFlagOption.options(from: store.snapshot(for: topicID)?.flagTypes ?? []),
+            isLoadingOptions: isLoadingOptions
         ) { option, message in
             try await store.flagPost(
-                topicID: topicID,
-                postID: context.postID,
-                flagTypeID: option.id,
+                topicId: topicID,
+                postId: context.postID,
+                flagTypeId: option.id,
                 message: message
             )
             await MainActor.run {
@@ -342,7 +346,12 @@ private struct FireTopicDetailFlagSheetHost: View {
             }
         }
         .task {
-            await store.loadPostActionTypesIfNeeded()
+            guard (store.snapshot(for: topicID)?.flagTypes ?? []).isEmpty else {
+                return
+            }
+            isLoadingOptions = true
+            defer { isLoadingOptions = false }
+            try? await store.ensureFlagTypes(topicId: topicID)
         }
     }
 }
@@ -479,27 +488,25 @@ private struct FireTopicDetailPostRepliesHost: View {
     let onJumpToPost: (UInt32) -> Void
 
     var body: some View {
+        let snapshot = store.snapshot(for: topicID)
+        let appendedIDs = Set(snapshot?.focusedReplyContext?.appendedPostIds ?? [])
+        let replies = (snapshot?.rows ?? [])
+            .filter { appendedIDs.contains($0.postId) }
+            .map(FireTopicDetailUiProjection.post(from:))
         FirePostRepliesSheet(
             post: context.post,
-            replies: store.postReplies(for: context.post.id) ?? [],
-            replyHistory: store.postReplyHistory(for: context.post.id) ?? [],
-            isLoading: store.isLoadingPostReplyContext(postID: context.post.id),
-            errorMessage: store.postReplyContextError(for: context.post.id),
+            replies: replies,
+            replyHistory: snapshot?.focusedReplyContext?.historyRows.map(FireTopicDetailUiProjection.post(from:)) ?? [],
+            isLoading: snapshot?.rows.contains { $0.postId == context.post.id && $0.isLoadingReplyContext } ?? false,
+            errorMessage: nil,
             baseURLString: baseURLString,
             onJumpToPost: onJumpToPost,
             onRetry: {
-                await store.loadPostReplyContextIfNeeded(
-                    topicID: topicID,
-                    post: context.post,
-                    force: true
-                )
+                store.loadReplyContext(topicId: topicID, postId: context.post.id)
             }
         )
         .task(id: context.post.id) {
-            await store.loadPostReplyContextIfNeeded(
-                topicID: topicID,
-                post: context.post
-            )
+            store.loadReplyContext(topicId: topicID, postId: context.post.id)
         }
     }
 }
